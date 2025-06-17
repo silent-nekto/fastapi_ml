@@ -1,0 +1,21 @@
+[project]
+name = "fastapi-prj"
+version = "0.1.0"
+description = ""
+package-mode = false
+authors = [
+    {name = "Sergei Maslov",email = "s.maslov@bi.zone"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+fastapi = "^0.115.13"
+scikit-learn = "^1.7.0"
+uvicorn = "^0.34.3"
+requests = "^2.32.4"
