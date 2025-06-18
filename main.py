@@ -15,7 +15,7 @@ class Item(BaseModel):
     pet_width: float
 
 
-class IrisWrapper:
+class IrisPredictor:
     def __init__(self):
         data = load_iris()
         X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.2)
@@ -28,11 +28,10 @@ class IrisWrapper:
         return predictions[0]
 
 
-IrisModel = IrisWrapper()
+predictor = IrisPredictor()
 
 
-@app.get('/items/')
-async def get_items(s: Item):
-    print(f'===={s=}')
-    res = IrisModel.predict(s)
+@app.get('/predict/')
+async def predict_iris(s: Item) -> str:
+    res = predictor.predict(s)
     return f'Result is {res}'
